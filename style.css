@@ -1,0 +1,386 @@
+body {
+  background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f1419 75%, #1a1a2e 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+      radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 25%),
+      radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.1) 0%, transparent 25%);
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  z-index: -1;
+}
+
+main, html {
+  color: white;
+}
+
+.menu {
+  background: none;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.menu h1 {
+  margin-left: 15px;
+  font-size: 60px;
+  font-family: "Cooper Black", Cooper, serif;
+  color: transparent;
+  background-color: #c3e7ff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.menu h1:hover {
+  background-color: #aedfff;
+
+}
+
+.menu .logo {
+  width: 70px;
+  height: 70px;
+  background-image: url("LogoCOS.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 15px;
+}
+
+.home {
+  background: none;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home h1 {
+  font-size: 50px;
+  font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+  background-color: #525d9b48;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  color: #222;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 110px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+.home h1 span {
+  /*background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);*/
+  background: #c3e7ff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.home p {
+  font-size: 18px;
+  font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+  background-color: #525d9b48;
+  height: 90px;
+  width: 65%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: -25px;
+}
+
+.home p span {
+  color: #c3e7ff;
+}
+
+.home button {
+  width: 250px;
+  height: 55px;
+  border-radius: 15px;
+  background-color: #c3e7ff;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.3s;
+}
+
+.home button:hover {
+  font-size: 18px;
+  background-color: #aedfff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Contact Header */
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-header h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  background: #c3e7ff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Card */
+.contact-card {
+  background: #525d9b48;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Input Fields */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.input-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+/* Input Styling */
+.input-field input,
+.input-field textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input-field input:focus,
+.input-field textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.input-field input::placeholder,
+.input-field textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.input-field textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* Submit Button */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  width: 250px;
+  height: 55px;
+  border-radius: 15px;
+  background-color: #c3e7ff;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  font-size: 18px;
+  background-color: #aedfff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+.submit-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+      padding: 20px 15px;
+  }
+  
+  .contact-header h1 {
+      font-size: 2.5rem;
+  }
+  
+  .contact-header p {
+      font-size: 1rem;
+  }
+  
+  .contact-card {
+      padding: 30px 20px;
+  }
+  
+  .input-pair {
+      grid-template-columns: 1fr;
+      gap: 15px;
+  }
+  
+  .submit-btn {
+      width: 100%;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+      font-size: 2rem;
+  }
+  
+  .contact-card {
+      padding: 25px 15px;
+  }
+  
+  .input-field input,
+  .input-field textarea {
+      padding: 12px 15px;
+  }
+  }
+
+  /* Animation for form elements */
+  .input-field input,
+  .input-field textarea {
+      animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .input-field:nth-child(1) { animation-delay: 0.1s; }
+  .input-field:nth-child(2) { animation-delay: 0.2s; }
+  .input-field:nth-child(3) { animation-delay: 0.3s; }
+  .input-field:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
