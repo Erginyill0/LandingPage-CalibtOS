@@ -84,7 +84,7 @@ main, html {
 .home {
   background: none;
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@ main, html {
   color: #222;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: 110px;
-  width: 70%;
+  width: 900px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -123,8 +123,8 @@ main, html {
   font-size: 18px;
   font-family: "Inter", "Segoe UI", "Arial", sans-serif;
   background-color: #525d9b48;
-  height: 90px;
-  width: 65%;
+  height: 150px;
+  width: 800px;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -157,6 +157,129 @@ main, html {
   background-color: #aedfff;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.box {
+  background: none;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.companies {
+  background: #525d9b48;
+  width: 1300px;
+  height: 110px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+}
+
+.companies div {
+  width: 250px;
+  height: 90px;
+  border-radius: 15px;
+}
+
+.companies .n1 {
+  background-image: url("IT-Business-Logo-1.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  filter: brightness(0) invert(1);
+}
+
+.companies .n2 {
+  background-image: url("IT-Business-Logo-2.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  filter: brightness(0) invert(1);
+}
+
+.companies .n3 {
+  background-image: url("IT-Business-Logo-3.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  filter: brightness(0) invert(1);
+}
+
+.companies .n4 {
+  background-image: url("IT-Business-Logo-4.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  filter: brightness(0) invert(1);
+}
+
+.box-2 {
+  background: none;
+  width: 100%;
+  height: 800px;
+  margin-top: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.box-2 .help {
+  background-color: #525d9b48;
+  height: 600px;
+  width: 1500px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 15px;
+}
+
+.box-2 .help .image {
+  border-radius: 15px;
+  background-color: white;
+  width: 30%;
+  height: 540px;
+}
+
+.box-2 .help .boxes {
+  border-radius: 15px;
+  background-color: white;
+  width: 60%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.box-2 .help .boxes .n1 {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.box-2 .help .boxes .n2 {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.box-2 .help .boxes .n3 {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.box-2 .help .boxes .n4 {
+  background-color: black;
+  border-radius: 10px;
 }
 
 .contact-container {
