@@ -5,6 +5,564 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CalibtOS</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
+            linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f1419 75%, #1a1a2e 100%);
+        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        background-attachment: fixed;
+        position: relative;
+        overflow-x: hidden;
+        }
+
+        body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 25%),
+            radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.1) 0%, transparent 25%);
+        z-index: -1;
+        }
+
+        body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+            linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%);
+        background-size: 60px 60px;
+        background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        z-index: -1;
+        }
+
+        main, html {
+        color: white;
+        }
+
+        .menu {
+        background: none;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+        }
+
+        .menu h1 {
+        margin-left: 15px;
+        font-size: 60px;
+        font-family: "Cooper Black", Cooper, serif;
+        color: transparent;
+        background-color: #c3e7ff;
+        -webkit-background-clip: text;
+        background-clip: text;
+        transition: all 0.3s;
+        cursor: pointer;
+        }
+
+        .menu h1:hover {
+        background-color: #aedfff;
+
+        }
+
+        .menu .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url("LogoCOS.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin-left: 15px;
+        }
+
+        .home {
+        background: none;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        }
+
+        .home h1 {
+        font-size: 60px;
+        font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+        background-color: #525d9b48;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        color: #222;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        height: 110px;
+        width: 80%;
+        max-width: 1000px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-top: -10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .home h1 span {
+        /*background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);*/
+        background: #c3e7ff;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        }
+
+        .home p {
+        font-size: 20px;
+        font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+        background-color: #525d9b48;
+        height: 150px;
+        width: 75%;
+        max-width: 900px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-top: -25px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .home p span {
+        color: #c3e7ff;
+        }
+
+        .home button {
+        width: 250px;
+        height: 55px;
+        border-radius: 15px;
+        background-color: #c3e7ff;
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: all 0.3s;
+        }
+
+        .home button:hover {
+        font-size: 18px;
+        background-color: #aedfff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .box {
+        background: none;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .companies {
+        background: #525d9b48;
+        width: 75%;
+        max-width: 950px;
+        height: 110px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .companies div {
+        width: 180px;
+        height: 70px;
+        border-radius: 15px;
+        }
+
+        .companies .n1 {
+        background-image: url("IT-Business-Logo-1.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        filter: brightness(0) invert(1);
+        }
+
+        .companies .n2 {
+        background-image: url("IT-Business-Logo-2.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        filter: brightness(0) invert(1);
+        }
+
+        .companies .n3 {
+        background-image: url("IT-Business-Logo-3.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        filter: brightness(0) invert(1);
+        }
+
+        .companies .n4 {
+        background-image: url("IT-Business-Logo-4.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        filter: brightness(0) invert(1);
+        }
+
+        .box-2 {
+        background: none;
+        width: 100%;
+        height: 800px;
+        margin-top: 100px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        }
+
+        .box-2 .help {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: #525d9b48;
+        height: 550px;
+        width: 85%;
+        max-width: 1100px;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 15px;
+        
+        }
+
+        .box-2 .help .image {
+        border-radius: 15px;
+        width: 30%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        margin-left: 20px;
+        }
+
+        .box-2 .help .boxes {
+        border-radius: 15px;
+        background: none;
+        width: 60%;
+        height: 485px;
+        min-height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        align-items: stretch;
+        }
+
+        .box-2 .help .boxes .n1, 
+        .box-2 .help .boxes .n2, 
+        .box-2 .help .boxes .n3, 
+        .box-2 .help .boxes .n4 {
+        background: #525d9b48;
+        border-radius: 10px;
+        padding: 20px;
+        color: #ffffff;
+        font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        height: auto;
+        min-height: 180px;
+        }
+
+
+        .box-2 .help .boxes .n1:hover, 
+        .box-2 .help .boxes .n2:hover, 
+        .box-2 .help .boxes .n3:hover, 
+        .box-2 .help .boxes .n4:hover {
+        background: #525d9b68;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        border-color: rgba(195, 231, 255, 0.3);
+        }
+
+        .box-2 .help .boxes .n1 h1, 
+        .box-2 .help .boxes .n2 h1, 
+        .box-2 .help .boxes .n3 h1, 
+        .box-2 .help .boxes .n4 h1 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #c3e7ff;
+        margin: 0 0 15px 0;
+        font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        }
+
+        .contact-container {
+        width: 75%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        min-height: 100vh;
+        margin-top: 100px;
+        }
+
+        /* Contact Header */
+        .contact-header {
+        text-align: center;
+        margin-bottom: 100px;
+        }
+
+        .contact-header h1 {
+        font-size: 60px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 20px;
+        background: #c3e7ff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        }
+
+        .contact-header p {
+        font-size: 1.2rem;
+        color: #a0a0a0;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        /* Contact Card */
+        .contact-card {
+        background: #525d9b48;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        }
+
+        /* Form Groups */
+        .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+
+        .input-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        }
+
+        /* Input Fields */
+        .input-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        }
+
+        .input-field.full-width {
+        grid-column: 1 / -1;
+        }
+
+        .input-field label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #e0e0e0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+        font-family: sans-serif;
+        }
+
+        /* Input Styling */
+        .input-field input,
+        .input-field textarea {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        color: #ffffff;
+        font-family: inherit;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        }
+
+        .input-field input:focus,
+        .input-field textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        transform: translateY(-2px);
+        }
+
+        .input-field input::placeholder,
+        .input-field textarea::placeholder {
+        color: #888;
+        font-style: title case;
+        }
+
+        .input-field textarea {
+        min-height: 120px;
+        resize: vertical;
+        font-family: inherit;
+        line-height: 1.5;
+        }
+
+        /* Submit Button */
+        .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        }
+
+        .submit-btn {
+        width: 250px;
+        height: 55px;
+        border-radius: 15px;
+        background-color: #c3e7ff;
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+        font-size: 18px;
+        background-color: #aedfff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+        transform: translateY(-1px);
+        }
+
+        .submit-btn svg {
+        transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover svg {
+        transform: translateX(3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+        .contact-container {
+            padding: 20px 15px;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .contact-header p {
+            font-size: 1rem;
+        }
+        
+        .contact-card {
+            padding: 30px 20px;
+        }
+        
+        .input-pair {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            justify-content: center;
+        }
+        }
+
+        @media (max-width: 480px) {
+        .contact-header h1 {
+            font-size: 2rem;
+        }
+        
+        .contact-card {
+            padding: 25px 15px;
+        }
+        
+        .input-field input,
+        .input-field textarea {
+            padding: 12px 15px;
+        }
+        }
+
+        /* Animation for form elements */
+        .input-field input,
+        .input-field textarea {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .input-field:nth-child(1) { animation-delay: 0.1s; }
+        .input-field:nth-child(2) { animation-delay: 0.2s; }
+        .input-field:nth-child(3) { animation-delay: 0.3s; }
+        .input-field:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
 </head>
 <body>
     <div class="menu">
@@ -35,21 +593,41 @@
 
     <div class="box-2">
         <div class="help">
-            <div class="image"></div>
+            <img src="Picture1.jpg" alt="Help Image" class="image">
             <div class="boxes">
-                <div class="n1"></div>
-                <div class="n2"></div>
-                <div class="n3"></div>
-                <div class="n4"></div>
+                <div class="n1">
+                    <h1>01. Product Due Diligence</h1>
+                    Wir arbeiten frühzeitig mit Ihnen zusammen, um die Machbarkeit zu prüfen, 
+                    Risiken bei Investitionen zu minimieren und Teams auf das auszurichten, was 
+                    wirklich lohnenswert ist. Denn Klarheit im Vorfeld spart später Kosten, Zeit und Schwung.
+                </div>
+                <div class="n2">
+                    <h1>02. Product Strategy</h1>
+                    Wir schaffen Klarheit bei unklaren Produkten, indem wir definieren,
+                    was wichtig ist, was skalierbar ist und was Ergebnisse liefert. Eine Strategie, 
+                    die Teams aufeinander abstimmt und durch zielgerichtete Roadmaps Akzeptanz findet.
+                </div>
+                <div class="n3">
+                    <h1>03. Product Design</h1>
+                    Wir vereinfachen Komplexität durch zielgerichtetes Design – 
+                    indem wir Empathie und Verhaltenskenntnisse nutzen, um Lösungen
+                    zu entwickeln, die das Kundenerlebnis verbessern und die Akzeptanz fördern.
+                </div>
+                <div class="n4">
+                    <h1>04. Product Scale</h1>
+                    Wir entwickeln digitale Produkte, die sich zuverlässig skalieren lassen. 
+                    Diese sind auf Leistung, Zuverlässigkeit und langfristige Wirkung auf Cloud-, 
+                    Mobil- und Webplattformen ausgelegt.
+                </div>
             </div>
         </div>
     </div>
 
     <div class="contact-container" id="contact-form">
-        <div class="contact-header">
-            <h1 >Produktanfrage Online</h1>
-        </div>
         <div class="contact-card">
+            <div class="contact-header">
+                <h1 >Produktanfrage Online</h1>
+            </div>
             <form class="contact-form" action="" method="POST">
                 <div class="form-group">
                     <div class="input-pair">
@@ -100,6 +678,13 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="script.js">
+        document.getElementById('anfragen-btn').addEventListener('click', function() {
+            document.getElementById('contact-form').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+    </body>
 </html>
